@@ -1,0 +1,14 @@
+#Программа содержит логическую функцию проверки списка чисел на то, составные ли они. Программа применяет функцию к списку
+def isprime(a): 
+  for i in range(2, int(a**0.5)+ 1): 
+    if a%i==0: 
+      return 0 
+  return 
+A=[] 
+f=open('2-in.txt', 'r') 
+for line in f: 
+  A.append(line) 
+A=' '.join(A).strip().split() 
+x=[isprime(int(A[i])) for i in range(len(A)) if x != False] 
+print(x,'composite') 
+f.close
