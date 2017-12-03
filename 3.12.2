@@ -1,0 +1,23 @@
+#Программа содержит функцию вычисляющую функцию Эйлера для произвольного натурального числа.
+#Программа должна считывать из файла массив чисел и находить среднее геометрическое значение ф.Эйлера чисел массива
+def isprime(n):
+   for i in range(2, int(n**0.5)+1):
+    if n%i==0:
+      return 0
+  return 1
+def isbothprime(n):
+  amount=1
+  for i in range(1,n):
+    if isprime(i) and n%i!=0:
+      amount+=1
+  return amount
+  
+f=open('2-in.txt','r')
+e=[int(line) for line in f]
+e=[isbothprime(digit) for digit in e]
+mul=1
+for elem in e:
+  mul*=elem
+print(*e)
+print('Geom:{}'.format(mul**(1/len(e))))
+f.close
