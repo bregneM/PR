@@ -1,0 +1,18 @@
+#Реализуйте в виде рекурсивной функции алгоритм Быстрой Сортировки для массива чисел
+def Qsort(a): 
+  n=len(a) 
+  b,eq,small=[],[],[] 
+  if len(a) > 1: 
+    base=a[0] 
+    for i in range(n): 
+      if base > a[i]: 
+        small.append(a[i]) 
+      elif base==a[i]: 
+        eq.append(a[i]) 
+      else: 
+        b.append(a[i]) 
+    return Qsort(small) + eq + Qsort(b) 
+  else: 
+    return(a) 
+a=[int(i) for i in input().split()] 
+print(*Qsort(a))
